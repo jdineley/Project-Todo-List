@@ -1,6 +1,6 @@
 import { format, compareAsc, isToday, isThisWeek } from 'date-fns'
 
-// Backend logic *******************
+// Backend ************************************
 
 class Task {
     constructor(name, date = 'No Date') {
@@ -86,6 +86,7 @@ class Task {
             this.today.completedTasks.length = 0;
             this.thisWeek.tasks.length = 0;
             this.thisWeek.completedTasks.length = 0;
+
             if(projectName ==='Today') {
                 this.projects.forEach(p => {
                     if(p.name === 'Today' || p.name === 'This week') return
@@ -166,11 +167,9 @@ class Task {
     todoList.addProject(starterProject2);
     starterTasks2.forEach(task => starterProject2.addTask(task));
 
-// ***************************************
+// Backend ************************************
 
-
-
-// Gui *************************************
+// Gui *********************************
 
 const projectsUl = document.querySelector('#projects')
 const nameInput = document.querySelector('#name')
@@ -225,7 +224,7 @@ function populateTasks(project) {
     tasksUl.textContent = ''
     project.tasks.forEach(t => {
         let taskLi = document.createElement('li');
-        taskLi.textContent = `${t.name} (${t.project.name})`
+        taskLi.textContent = t.name
         taskLi.addEventListener('click', taskSelectHandler)
         tasksUl.appendChild(taskLi);
     })
@@ -270,4 +269,4 @@ window.todo = {
     projectSelected: projectSelected
   }
 
-// ****************************************
+// Gui *********************************
