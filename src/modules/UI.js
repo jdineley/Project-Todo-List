@@ -1,7 +1,6 @@
 import { todoList } from "./todoList";
 import Project from "./project";
 import Task from "./task";
-const stringify = require("json-stringify-safe");
 
 export default function UI() {
   const projectsUl = document.querySelector("#projects");
@@ -18,7 +17,7 @@ export default function UI() {
   let projectSelected = todoList.selectProject("Inbox");
 
   function projectSelectHandler(e) {
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
     projectSelected = todoList.selectProject(e.target.textContent);
     if (
       projectSelected.name === "Today" ||
@@ -32,7 +31,7 @@ export default function UI() {
   }
 
   function taskSelectHandler(e) {
-    console.log(e.target.id, projectSelected);
+    // console.log(e.target.id, projectSelected);
     projectSelected.completeTaskToggle(e.target.id);
     populateTasks(projectSelected);
   }

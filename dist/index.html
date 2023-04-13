@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../src/imgs/todo-icon.svg" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shadows+Into+Light&display=swap');
+      </style>
+    <script src="https://kit.fontawesome.com/7f7fd5b87e.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
-    <title>ToDo list</title>
-  </head>
-  <body>
-    <h1>Todo list</h1>
-
-    <div class="group">
-      <form action="" id="add-project">
-        <label for="name">Project Name:</label>
-        <input type="text" id="name" name="name" />
-        <button>Add project</button>
-      </form>
-      <ul id="projects"></ul>
-      <h2 id="project"></h2>
-      <form action="" id="add-task">
-        <div>
-          <label for="name">Task Name:</label>
-          <input type="text" id="name" name="name" />
+    <title>Todo list</title>
+</head>
+<body>
+    <header>
+        <img src="../src/imgs/todo-icon.svg" alt="">
+        <H1>Todo List</H1>
+    </header>
+    <main>
+        <div class="side-bar">
+            <div class="default-projects">
+                <button class="inbox active">
+                    <i class="fa-solid fa-inbox"></i>
+                    Inbox
+                </button>
+                <button class="today">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    Today
+                </button>
+                <button class="this-week">
+                    <i class="fa-solid fa-calendar-week"></i>
+                    This week
+                </button>
+            </div>
+            <h2 class="projects-title">Projects</h2>
+            <div class="projects">
+            </div>
+            <button class="add-project">
+                <i class="fa-solid fa-plus"></i>
+                Add Project
+            </button>
+            <div class="add-project-form">
+                <input type="text" placeholder="project name" id="project-name">
+                <div class="buttons">
+                    <button class="add">Add</button>
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        
         </div>
-        <div>
-          <label for="date">Task Date:</label>
-          <input type="date" id="date" name="date" />
-        </div>
-        <button>Add task</button>
-      </form>
-      <ul id="tasks"></ul>
-    </div>
+        <div class="project-display">
+            <h1 class="project-name">Inbox</h1>
+            <div class="tasks">
 
-    <div class="group">
-      <h3>Completed tasks</h3>
-      <ul id="completed-tasks"></ul>
-    </div>
-  </body>
+            </div>
+            <button class="add-task">
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+            </button>
+            <div class="add-task-form">
+                <div class="task-name-date">
+                    <input type="text" placeholder="task name" id="task-name">
+                    <input type="date" placeholder="task name" id="task-date">
+                </div>
+                <div class="buttons">
+                    <button class="add">Add</button>
+                    <button class="cancel">Cancel</button>
+                </div>
+                
+            </div>
+            <div class="completed-tasks">
+
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
 </html>
