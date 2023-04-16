@@ -18,6 +18,9 @@ export default class Project {
   }
   removeTask(removeTask) {
     this.tasks = this.tasks.filter((task) => task !== removeTask);
+    this.completedTasks = this.completedTasks.filter(
+      (task) => task !== removeTask
+    );
     localStorage.setItem("todoList", stringify(todoList, null, 2));
   }
   addCompletedTask(task) {

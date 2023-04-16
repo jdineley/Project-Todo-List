@@ -96,7 +96,6 @@ export const todoList = {
 if (localStorage.getItem("todoList")) {
   // Grab data from localStorage
   let todoListStore = JSON.parse(localStorage.getItem("todoList"));
-  console.log(todoListStore);
   let allStoredTasks = [];
   todoListStore.projects.forEach((p) => {
     if (!p.composite) {
@@ -107,7 +106,6 @@ if (localStorage.getItem("todoList")) {
       } else allStoredTasks.push(p);
     }
   });
-  console.log(allStoredTasks);
   let projects = {};
   allStoredTasks.forEach((t) => {
     if (t.type === "Task") {
@@ -117,20 +115,16 @@ if (localStorage.getItem("todoList")) {
       projects[t.name] = projects[t.name] || [];
     }
   });
-  console.log(projects);
   for (let project in projects) {
     let projObj = project === "Inbox" ? todoList.inbox : new Project(project);
-    console.log(project, projObj);
     projects[project].forEach((t) => {
       if (t.complete) projObj.addCompletedTask(t);
       else projObj.addTask(t);
     });
     todoList.addProject(projObj);
   }
-  console.log(todoList);
 } else {
   // Create starter projects and tasks:
-  console.log("Here!");
   const starterProject1 = new Project("Learn Javascript");
   const starterProject2 = new Project("Learn more Javascript");
   const starterTasks1 = [
