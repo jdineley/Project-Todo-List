@@ -29,7 +29,9 @@ export default class Project {
   addCompletedTask(task) {
     task.project = this;
     task.projectName = this.name;
+    task.inDate = isAfter(new Date(task.date), new Date());
     this.completedTasks.push(task);
+    this.completedTaskOrdering();
     localStorage.setItem("todoList", stringify(todoList, null, 2));
   }
   removeCompletedTask(removeTask) {
@@ -65,5 +67,15 @@ export default class Project {
       return compareAsc(aDate, bDate);
     });
     this.tasks = datedTasks.concat(noDateTasks);
+  }
+  completedTaskOrdering() {
+    let noDateTasks = this.completedTasks.filter((t) => t.date === "No date");
+    let datedTasks = this.completedTasks.filter((t) => t.date !== "No date");
+    datedTasks.sort((a, b) => {
+      let aDate = new Date(a.date);
+      let bDate = new Date(b.date);
+      return compareAsc(aDate, bDate);
+    });
+    this.completedTasks = datedTasks.concat(noDateTasks);
   }
 }

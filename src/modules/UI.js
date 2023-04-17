@@ -1,6 +1,7 @@
 import { todoList } from "./todoList";
 import Project from "./project";
 import Task from "./task";
+import Icon from "../imgs/todo-icon.svg";
 
 export default function UI() {
   //DOM cache
@@ -26,6 +27,13 @@ export default function UI() {
   const projectFormButtonsDiv = document.querySelector(".project-form-buttons");
   const openSideBarButton = document.querySelector(".button-open-nav");
   const sideBarDiv = document.querySelector(".side-bar");
+  const logoDiv = document.querySelector(".logo");
+  const todoListTitleH1 = document.querySelector("#todo-list-title");
+
+  //Webpack assets
+  const icon = new Image();
+  icon.src = Icon;
+  logoDiv.insertBefore(icon, todoListTitleH1);
 
   //Active project
   let projectSelected = todoList.selectProject("Inbox");

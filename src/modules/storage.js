@@ -35,28 +35,26 @@ export default function storage() {
     }
   } else {
     // Create starter projects and tasks:
-    const starterProject1 = new Project("Learn Javascript");
-    const starterProject2 = new Project("Learn more Javascript");
-    const starterTasks1 = [
-      new Task("Write code1", "2023-04-10"),
-      new Task("Refactor old code1", "2023-04-12"),
-      new Task("foo1", "2023-04-14"),
-      new Task("bar1", "2023-04-20"),
-      new Task("baz1", "2023-04-25"),
-    ];
-    const starterTasks2 = [
-      new Task("Write code2", "2023-04-11"),
-      new Task("Refactor old code2", "2023-04-13"),
-      new Task("foo2", "2023-04-16"),
-      new Task("bar2", "2023-04-20"),
-      new Task("baz2", "2023-04-25"),
-    ];
-
-    todoList.addProject(starterProject1);
-    starterTasks1.forEach((task) => starterProject1.addTask(task));
-
-    todoList.addProject(starterProject2);
-    starterTasks2.forEach((task) => starterProject2.addTask(task));
+    // const starterProject1 = new Project("Learn Javascript");
+    // const starterProject2 = new Project("Learn more Javascript");
+    // const starterTasks1 = [
+    //   new Task("Write code1", "2023-04-10"),
+    //   new Task("Refactor old code1", "2023-04-12"),
+    //   new Task("foo1", "2023-04-14"),
+    //   new Task("bar1", "2023-04-20"),
+    //   new Task("baz1", "2023-04-25"),
+    // ];
+    // const starterTasks2 = [
+    //   new Task("Write code2", "2023-04-11"),
+    //   new Task("Refactor old code2", "2023-04-13"),
+    //   new Task("foo2", "2023-04-16"),
+    //   new Task("bar2", "2023-04-20"),
+    //   new Task("baz2", "2023-04-25"),
+    // ];
+    // todoList.addProject(starterProject1);
+    // starterTasks1.forEach((task) => starterProject1.addTask(task));
+    // todoList.addProject(starterProject2);
+    // starterTasks2.forEach((task) => starterProject2.addTask(task));
   }
   if (!todoList.projects.includes(todoList.inbox))
     todoList.addProject(todoList.inbox);
