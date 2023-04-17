@@ -124,7 +124,8 @@ export default function UI() {
   }
 
   function addProjectHandler(e) {
-    todoList.addProject(new Project(newProjectNameInput.value));
+    if(!todoList.selectProject(newProjectNameInput.value.trim())) todoList.addProject(new Project(newProjectNameInput.value.trim()));
+    else alert('This name is already taken')
     populateProjects();
     document.querySelectorAll("input").forEach((i) => (i.value = ""));
   }
