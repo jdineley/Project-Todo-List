@@ -329,7 +329,7 @@ h3 {
   color: red;
 }
 
-/* @media (max-width: 650px) {
+@media (max-width: 570px) {
   .button-open-nav {
     display: block;
   }
@@ -353,9 +353,9 @@ h3 {
   .side-bar.active {
     display: block;
   }
-} */
+}
 
-@media (max-width: 650px) {
+/* @media (max-width: 650px) {
   .button-open-nav {
     display: block;
   }
@@ -376,7 +376,7 @@ h3 {
   }
 
   .side-bar.active {
-    max-height: 500px;
+    max-height: 10000px;
     transform: rotateY(0);
   }
-}
+} */
