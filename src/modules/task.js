@@ -1,7 +1,9 @@
 const stringify = require("json-stringify-safe");
 import { todoList } from "./todoList";
+import { isAfter } from "date-fns";
 
 export default class Task {
+  inDate;
   constructor(name = "No name", date, complete = false) {
     this.name = name;
     this.date = date || "No date";
@@ -20,6 +22,8 @@ export default class Task {
   }
   setDate(date) {
     this.date = date || "No date";
+    this.inDate = isAfter(new Date(this.date), new Date());
+    this.project.taskOrdering();
     localStorage.setItem("todoList", stringify(todoList, null, 2));
   }
   toggleTaskComplete() {

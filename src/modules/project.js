@@ -1,5 +1,6 @@
 import { todoList } from "./todoList";
 const stringify = require("json-stringify-safe");
+import { compareAsc, isAfter } from "date-fns";
 
 export default class Project {
   constructor(name, composite = false) {
@@ -13,7 +14,9 @@ export default class Project {
   addTask(task) {
     task.project = this;
     task.projectName = this.name;
+    task.inDate = isAfter(new Date(task.date), new Date());
     this.tasks.push(task);
+    this.taskOrdering();
     localStorage.setItem("todoList", stringify(todoList, null, 2));
   }
   removeTask(removeTask) {
@@ -52,5 +55,15 @@ export default class Project {
       else task.project.addTask(task);
     });
     project.todo.assembleComposites();
+  }
+  taskOrdering() {
+    let noDateTasks = this.tasks.filter((t) => t.date === "No date");
+    let datedTasks = this.tasks.filter((t) => t.date !== "No date");
+    datedTasks.sort((a, b) => {
+      let aDate = new Date(a.date);
+      let bDate = new Date(b.date);
+      return compareAsc(aDate, bDate);
+    });
+    this.tasks = datedTasks.concat(noDateTasks);
   }
 }
